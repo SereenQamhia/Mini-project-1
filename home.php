@@ -1,3 +1,26 @@
+<?php 
+  session_start();
+ 
+  if (!isset($_SESSION['fruits_array'])) {
+    // If not set, initialize the session array as an empty array
+    $_SESSION['fruits_array'] = array();
+}
+
+if (!empty($_GET['name']) && !empty($_GET['price']) && !empty($_GET['details'])) {
+
+    $name = $_GET['name'];
+    $price = $_GET['price'];
+    $details = $_GET['details'];
+
+    $data = array('name' => $name, 'price' => $price, 'details' => $details);
+
+    $_SESSION['fruits_array'][] = $data;
+
+    header('location:home.php');
+    exit; // Ensure no further code is executed after the redirect
+}
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -69,15 +92,44 @@
   <div id="fillData">
   <form action="" method="get">
       <label for="" > Add fruit name :</label>
-    <input type="text" name="name">  <br>
+    <input type="text" name="name" Required>  <br>
       <label for=""> Add fruit price for kilo :</label>
     <input type="text" name="price" Required>   <br>
+      <label for=""> Description :</label>
+    <input type="text" name="details" Required>   <br>
     <label for=""> attach an image:</label>
     <input type="image">
     <button type="submit" ></button>
-
-</div>
   </form>
+  </div>
+  <table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Details</th>
+            <th scope="col">Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php if (!empty($_SESSION['fruits_array'])): ?>
+            <?php foreach ($_SESSION['fruits_array'] as $index => $fruit): ?>
+                <tr>
+                    <th scope="row"><?php echo $index + 1; ?></th>
+                    <td><?php echo $fruit['name']; ?></td>
+                    <td><?php echo $fruit['price']; ?></td>
+                    <td><?php echo $fruit['details']; ?></td>
+                    <td> <!-- Add the code to display the image here --> </td>
+                </tr>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <tr>
+                <td colspan="5">No fruits added yet.</td>
+            </tr>
+        <?php endif; ?>
+    </tbody>
+</table>
 
 
 <footer class="bg-light text-center text-lg-start">
@@ -126,13 +178,10 @@
   <!-- Copyright -->
 </footer>
 
-<?php 
-  session_start();
-  $i=0;
-  $_SESSION["fruit $i"]["name"]=$_GET["name"];
-  $_SESSION["fruit $i"]["price"]=$_GET["price"];
-  $_SESSION
-  
+
+
+
+
 
 
 
