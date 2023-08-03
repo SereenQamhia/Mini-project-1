@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+    padding: 0;
+}
 .logo {
     width: 130px;
     height: 80px;
@@ -79,12 +83,91 @@ footer {
 
 }
 
-@media screen and (min-width:768px ) and (max-width: 1024) {
+@media screen and (min-width:481px ) and (max-width: 768px) {
     .inner {
-        height: 400px;
+        height: 500px;
       }
     .carousel-caption {
     bottom: 100px;
-    font-size: 50px;
+    font-size: 20px;
 }
+#fillData {
+     width: 100%; 
+}
+
+.btn1 {
+  left:60% ;
+}
+
+.Image {
+    border-radius: 20px;
+}
+.seeProducts {
+    margin: 2% 0% 2% 2%;
+}
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        margin: 0px;
+    }
+    .inner {
+        height: 300px;
+      }
+    .carousel-caption {
+        bottom: 50px;
+        font-size: 20px;
+    }
+   /* #fillData {
+     width: 100%;
+    flex-direction: column;
+    padding: 0px;
+    justify-content: end;
+    
+}
+#fruit {
+    width: 100%;
+    margin: auto;
+    padding: 4% 0% 4% 4%;
+  
+
+} */
+   .Image {
+    display: none;
+}
+   .seeProducts {
+    margin: 0%;
+}
+h2 {
+    font-size:50px;
+     text-align: center;
+     padding: 25px;
+     font-family:Georgia, 'Times New Roman', Times, serif;
+
+ }
+#fillData {
+     margin: auto;
+     width: 100%;
+    font-size:20px;
+    padding: 0px;
+    
+}
+
+#fruit {
+    width: 100%;
+    padding: 5% 1% ;
+  
+
+}
+
+.btn1 {
+  left:70% ;
+  padding: 8px;
+}
+
+.butn {
+  position: relative;
+  left: 180px;
+}
+
 }
