@@ -19,6 +19,7 @@ if (!empty($_GET['name']) && !empty($_GET['price']) && !empty($_GET['details']))
     header('location:home.php');
     exit; // Ensure no further code is executed after the redirect
 }
+// unset($_SESSION['fruits_array'][5]);
 // session_unset();
 ?>
 
@@ -33,11 +34,12 @@ if (!empty($_GET['name']) && !empty($_GET['price']) && !empty($_GET['details']))
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/d6692547f6.js" crossorigin="anonymous"></script>
 </head>
   <body>
 
     <nav class="navbar navbar-expand-lg navbar-light">
-  <a class="navbar-brand" href="#"><img src="./images/logo.png" alt="logo" class="logo"></a>
+  <a class="navbar-brand" href="#"><img src="./images/Logo.png" alt="logo" class="logo"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -65,7 +67,7 @@ if (!empty($_GET['name']) && !empty($_GET['price']) && !empty($_GET['details']))
                 <li data-target="#carouselExample" data-slide-to="2"></li>
             </ol>
             <!--Carousel Slides-->
-            <div class="carousel-inner" style="height: 600px;">
+            <div class="carousel-inner inner" >
                 <div class="carousel-item active">
                 <img class="d-block w-100" src="./images/watermelon.jpg" alt="First slide">
                     <div class="carousel-caption">
@@ -76,7 +78,7 @@ if (!empty($_GET['name']) && !empty($_GET['price']) && !empty($_GET['details']))
                 <div class="carousel-item">
                 <img class="d-block w-100" src="./images/strawberry.jpg"  alt="First slide">
                     <div class="carousel-caption">
-                    <h3>Strawberries</h3>
+                    <h3 >Strawberries</h3>
         <p>Try our fresh strawberries. You will love them!</p>
                     </div>
                 </div>
@@ -99,19 +101,21 @@ if (!empty($_GET['name']) && !empty($_GET['price']) && !empty($_GET['details']))
 
   <h2 id="add">Add new fruit</h2>
   <div id="fillData">
-  <form action="" method="get">
+  <form  id="fruit" action="" method="get">
       <label for="" > Add fruit name :</label>
     <input type="text" name="name" Required>  <br>
       <label for=""> Add fruit price for kilo :</label>
     <input type="text" name="price" Required>   <br>
       <label for=""> Description :</label>
     <input type="text" name="details" Required>   <br>
-    <label for=""> attach an image:</label>
+    <label for=""> Attach an image:</label>
     <input type="file" >     <br>
-    <button type="submit" > Add</button>
-  </form>
-  </div>
-  <table class="table" id="table">
+    <button type="submit" class="btn1 btn-lg" > Add fruit</button>
+  </form> 
+  
+  <img class="Image" src="./images/fruits.jpg" >
+  </div> <br><br>
+  <table class="table container" id="table">
     <thead>
         <tr>
             <th scope="col">#</th>
@@ -138,16 +142,16 @@ if (!empty($_GET['name']) && !empty($_GET['price']) && !empty($_GET['details']))
             </tr>
         <?php endif; ?>
     </tbody>
-</table>
+</table>  <br><br>
+<form method="get" action="products.php" >
+  
+  <h3 class="seeProducts"> Click here to see all the fruits in the store =></h3>
+    <button type="submit" class="butn btn-lg"  > See Products</button>
 
-  <form method="get" action="products.php" >
-
-    <button type="submit" > See Products</button>
-
-        </form>
+        </form>  <br><br>
 
 
-        <footer class="bg-light text-center text-lg-start">
+        <footer class="text-center text-lg-start footer ">
     <div class="container p-4 pb-0">
         <div class="row">
             <div class="col-md-4 mb-4 mb-md-0">
@@ -156,7 +160,7 @@ if (!empty($_GET['name']) && !empty($_GET['price']) && !empty($_GET['details']))
                     <div class="input-group">
                         <input type="email" class="form-control" placeholder="Your email address" aria-label="Your email address" aria-describedby="subscribeBtn">
                         <div class="input-group-append">
-                            <button class="btn btn-primary" type="submit" id="subscribeBtn">Subscribe</button>
+                            <button class="btn btn-secondary" type="submit" id="subscribeBtn">Subscribe</button>
                         </div>
                     </div>
                 </form>
@@ -164,20 +168,20 @@ if (!empty($_GET['name']) && !empty($_GET['price']) && !empty($_GET['details']))
 
             <div class="col-md-4 mb-4 mb-md-0">
                 <h5 class="text-uppercase">Follow Us</h5>
-                <ul class="list-unstyled d-flex justify-content-center mb-0">
+                <ul class="list-unstyled d-flex justify-content-center mb-2">
                     <li class="mr-3">
                         <a href="#" class="text-dark">
-                            <i class="fab fa-facebook-f"></i>
+                        <i class="fa-brands fa-square-facebook fa-xl"></i>
                         </a>
                     </li>
                     <li class="mr-3">
                         <a href="#" class="text-dark">
-                            <i class="fab fa-twitter"></i>
+                            <i class="fab fa-twitter fa-xl"></i>
                         </a>
                     </li>
                     <li class="mr-3">
                         <a href="#" class="text-dark">
-                            <i class="fab fa-instagram"></i>
+                            <i class="fab fa-instagram fa-xl"></i>
                         </a>
                     </li>
                 </ul>
@@ -185,15 +189,15 @@ if (!empty($_GET['name']) && !empty($_GET['price']) && !empty($_GET['details']))
 
             <div class="col-md-4 mb-4 mb-md-0">
                 <h5 class="text-uppercase">Contact Us</h5>
-                <p class="mb-0">123 Main Street, City</p>
-                <p class="mb-0">Email: info@example.com</p>
-                <p class="mb-0">Phone: +1 (123) 456-7890</p>
+                <p class="mb-0">Eidon, Irbid</p>
+                <p class="mb-0">Email: info@Fruitify.com</p>
+                <p class="mb-0">Phone: +962775521688</p>
             </div>
         </div>
     </div>
 
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        © <?php echo date('Y'); ?> Your Fruits Store. All rights reserved.
+        © <?php echo date('Y'); ?> Fruitify. All rights reserved.
     </div>
 </footer>
 

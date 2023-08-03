@@ -3,12 +3,20 @@
     height: 80px;
 }
  nav {
-    background-color: #f0baba;
+    background-color: #f1d8d8;
     font-size: 23px;
     
    }
    .nav-item {
     padding: 20px 30px;
+}
+ .inner {
+   height: 600px;
+ }
+.carousel-caption {
+    position: absolute;
+    bottom: 600px;
+    font-size: 50px;
 }
 
  h2 {
@@ -22,18 +30,61 @@
     font-family:Georgia, 'Times New Roman', Times, serif;
     background-color: rgb(231, 155, 155);
      margin: auto;
-    width: 60%;
+     width: 80%;
     border-radius: 20px;
     display: flex;
-    justify-content: center;
-    padding: 30px;
+    justify-content: space-between;
     font-size:x-large;
     color: white;
     font-weight: bold;
+    padding: 0px;
+    
 }
 
+#fruit {
+    width: 50%;
+    padding: 4% 0% 4% 2%;
+  
+
+}
+.Image {
+    position: relative;
+    width: 50%;
+}
+
+.btn1 {
+  position: relative;
+  left:70% ;
+}
+.container2 {
+ margin: 2% 8%;
+
+}
 .card {
 
 display: inline-block;
 margin: 10px;
+}
+.seeProducts {
+    display: inline-block;
+    margin: 2% 0% 2% 25%;
+}
+.butn {
+    background-color: #f19898;
+    border-style: none;
+}
+
+footer {
+    background-color: #f4b8b8;
+
+}
+
+@media screen and (min-width:768px ) and (max-width: 1024) {
+    .inner {
+        height: 400px;
+      }
+    .carousel-caption {
+    bottom: 100px;
+    font-size: 50px;
+}
 }

@@ -14,8 +14,30 @@ session_start();
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/d6692547f6.js" crossorigin="anonymous"></script>
+
 </head>
   <body>
+  <nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="#"><img src="./images/Logo.png" alt="logo" class="logo"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="home.php#add">Add-products </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="home.php#table">Products table</a>
+      </li>
+    </ul>
+  </div>
+</nav> 
+<div class="container2">
         <?php  if(!empty($_SESSION['fruits_array'])): ?>
           <?php    foreach($_SESSION['fruits_array'] as $index => $fruit): ?>
 
@@ -34,6 +56,58 @@ session_start();
             
         <?php endif; ?>
 
+        </div>
+
+        
+        <footer class="text-center text-lg-start footer ">
+    <div class="container p-4 pb-0">
+        <div class="row">
+            <div class="col-md-4 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Subscribe to our Newsletter</h5>
+                <form action="">
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your email address" aria-label="Your email address" aria-describedby="subscribeBtn">
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary" type="submit" id="subscribeBtn">Subscribe</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-md-4 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Follow Us</h5>
+                <ul class="list-unstyled d-flex justify-content-center mb-2">
+                    <li class="mr-3">
+                        <a href="#" class="text-dark">
+                        <i class="fa-brands fa-square-facebook fa-xl"></i>
+                        </a>
+                    </li>
+                    <li class="mr-3">
+                        <a href="#" class="text-dark">
+                            <i class="fab fa-twitter fa-xl"></i>
+                        </a>
+                    </li>
+                    <li class="mr-3">
+                        <a href="#" class="text-dark">
+                            <i class="fab fa-instagram fa-xl"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Contact Us</h5>
+                <p class="mb-0">Eidon, Irbid</p>
+                <p class="mb-0">Email: info@Fruitify.com</p>
+                <p class="mb-0">Phone: +962775521688</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © <?php echo date('Y'); ?> Fruitify. All rights reserved.
+    </div>
+</footer>
 
            <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
