@@ -169,5 +169,7 @@ h2 {
   position: relative;
   left: 180px;
 }
-
+.card {
+    margin: 10px 30px;
+    }
 }
