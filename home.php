@@ -19,6 +19,7 @@ if (!empty($_GET['name']) && !empty($_GET['price']) && !empty($_GET['details']))
     header('location:home.php');
     exit; // Ensure no further code is executed after the redirect
 }
+// session_unset();
 ?>
 
 <!doctype html>
@@ -43,52 +44,60 @@ if (!empty($_GET['name']) && !empty($_GET['price']) && !empty($_GET['details']))
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#carouselExample">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Add-products </a>
+        <a class="nav-link" href="#add">Add-products </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Products table</a>
+        <a class="nav-link" href="#table">Products table</a>
       </li>
     </ul>
   </div>
 </nav> 
 
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators " >
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" ></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
 
-        <div class="carousel-item active">
-            <img class="d-block w-100" src="./images/watermelon.jpg" alt="Second slide">
-          </div>
+  <div id="carouselExample" class="carousel slide" data-ride="carousel" >
+            <!--Carousel Indicators-->
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExample" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExample" data-slide-to="1"></li>
+                <li data-target="#carouselExample" data-slide-to="2"></li>
+            </ol>
+            <!--Carousel Slides-->
+            <div class="carousel-inner" style="height: 600px;">
+                <div class="carousel-item active">
+                <img class="d-block w-100" src="./images/watermelon.jpg" alt="First slide">
+                    <div class="carousel-caption">
+                    <h3>Watermelon</h3>
+        <p>Enjoy the refreshing taste of fresh watermelons!</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                <img class="d-block w-100" src="./images/strawberry.jpg"  alt="First slide">
+                    <div class="carousel-caption">
+                    <h3>Strawberries</h3>
+        <p>Try our fresh strawberries. You will love them!</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                <img class="d-block w-100" src="./images/Apples.webp" alt="Third slide">
+                    <div class="carousel-caption">
+                    <h3>Apples</h3>
+        <p>Discover our variety of delicious apples.</p>
+                    </div>
+                </div>
+            </div>
+            <!--Carousel Previous Next Controls-->
+            <a class="carousel-control-prev" href="#carouselExample" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExample" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
 
-      <div class="carousel-item ">
-        <img class="d-block w-100" src="./images/strawberries.jpg" alt="First slide">
-        <div class="carousel-caption d-block">
-            <h5>Try our fresh strawberries</h5>
-            <p>You will love it</p>
-          </div>
-      </div>
-    
-      <div class="carousel-item">
-        <img class="d-block w-100" src="./images/Apples.webp" alt="Third slide">
-      </div>
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev" >
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div> 
-  <h2>Add new fruit</h2>
+  <h2 id="add">Add new fruit</h2>
   <div id="fillData">
   <form action="" method="get">
       <label for="" > Add fruit name :</label>
@@ -98,11 +107,11 @@ if (!empty($_GET['name']) && !empty($_GET['price']) && !empty($_GET['details']))
       <label for=""> Description :</label>
     <input type="text" name="details" Required>   <br>
     <label for=""> attach an image:</label>
-    <input type="image">
-    <button type="submit" ></button>
+    <input type="file" >     <br>
+    <button type="submit" > Add</button>
   </form>
   </div>
-  <table class="table">
+  <table class="table" id="table">
     <thead>
         <tr>
             <th scope="col">#</th>
@@ -118,9 +127,9 @@ if (!empty($_GET['name']) && !empty($_GET['price']) && !empty($_GET['details']))
                 <tr>
                     <th scope="row"><?php echo $index + 1; ?></th>
                     <td><?php echo $fruit['name']; ?></td>
-                    <td><?php echo $fruit['price']; ?></td>
+                    <td><?php echo $fruit['price'] .'JD'; ?></td>
                     <td><?php echo $fruit['details']; ?></td>
-                    <td> <!-- Add the code to display the image here --> </td>
+                    <td> <img src="./images/fruits.jpg" style="height:40px" > </td>
                 </tr>
             <?php endforeach; ?>
         <?php else: ?>
@@ -131,66 +140,62 @@ if (!empty($_GET['name']) && !empty($_GET['price']) && !empty($_GET['details']))
     </tbody>
 </table>
 
+  <form method="get" action="products.php" >
 
-<footer class="bg-light text-center text-lg-start">
-  <!-- Grid container -->
-  <div class="container p-4 pb-0">
-    <form action="">
-      <!--Grid row-->
-      <div class="row">
-        <!--Grid column-->
-        <div class="col-auto mb-4 mb-md-0">
-          <p class="pt-2">
-            <strong>Sign up for our newsletter</strong>
-          </p>
+    <button type="submit" > See Products</button>
+
+        </form>
+
+
+        <footer class="bg-light text-center text-lg-start">
+    <div class="container p-4 pb-0">
+        <div class="row">
+            <div class="col-md-4 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Subscribe to our Newsletter</h5>
+                <form action="">
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your email address" aria-label="Your email address" aria-describedby="subscribeBtn">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit" id="subscribeBtn">Subscribe</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-md-4 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Follow Us</h5>
+                <ul class="list-unstyled d-flex justify-content-center mb-0">
+                    <li class="mr-3">
+                        <a href="#" class="text-dark">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li class="mr-3">
+                        <a href="#" class="text-dark">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="mr-3">
+                        <a href="#" class="text-dark">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Contact Us</h5>
+                <p class="mb-0">123 Main Street, City</p>
+                <p class="mb-0">Email: info@example.com</p>
+                <p class="mb-0">Phone: +1 (123) 456-7890</p>
+            </div>
         </div>
-        <!--Grid column-->
+    </div>
 
-        <!--Grid column-->
-        <div class="col-md-5 col-12 mb-4 mb-md-0">
-          <!-- Email input -->
-          <div class="form-outline mb-4">
-            <input type="email" id="form5Example25" class="form-control" />
-            <label class="form-label" for="form5Example25">Email address</label>
-          </div>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-auto mb-4 mb-md-0">
-          <!-- Submit button -->
-          <button type="submit" class="btn btn-primary mb-4">
-            Subscribe
-          </button>
-        </div>
-        <!--Grid column-->
-      </div>
-      <!--Grid row-->
-    </form>
-  </div>
-  <!-- Grid container -->
-
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2020 Copyright:
-    <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-  </div>
-  <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © <?php echo date('Y'); ?> Your Fruits Store. All rights reserved.
+    </div>
 </footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
