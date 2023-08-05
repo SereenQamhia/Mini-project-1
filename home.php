@@ -110,7 +110,7 @@ if (!empty($_GET['name']) && !empty($_GET['price']) && !empty($_GET['details']))
     <input type="text" name="details" Required>   <br>
     <label for=""> Attach an image:</label>
     <input type="file" >     <br>
-    <button type="submit" class="btn1 btn-lg" > Add fruit</button>
+    <button type="submit" class="btn1 btn-lg" >Add fruit</button>
   </form> 
   
   <img class="Image" src="./images/fruits.jpg" >

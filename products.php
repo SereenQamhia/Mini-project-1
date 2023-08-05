@@ -52,7 +52,7 @@ session_start();
 
 <?php endforeach; ?>
         <?php else: ?>
-          <h3> There is no products added to display </h3>
+          <h3>There is no products added to display </h3>
             
         <?php endif; ?>
 
