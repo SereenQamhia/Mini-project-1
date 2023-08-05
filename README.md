@@ -1,2 +1,2 @@
 # Mini-project-1
-mini store to view the items that has been added from the user of the store
+In this mini-projrct I create a Fruits store (Fruitify) using HTML , CSS and PHP , where the admain can add the fruits for his store website as well as the admain can display all the fruits in a see-products page.
