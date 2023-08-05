@@ -71,21 +71,18 @@ if (!empty($_GET['name']) && !empty($_GET['price']) && !empty($_GET['details']))
                 <div class="carousel-item active">
                 <img class="d-block w-100" src="./images/watermelon.jpg" alt="First slide">
                     <div class="carousel-caption">
-                    <h3>Watermelon</h3>
         <p>Enjoy the refreshing taste of fresh watermelons!</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                 <img class="d-block w-100" src="./images/strawberry.jpg"  alt="First slide">
                     <div class="carousel-caption">
-                    <h3 >Strawberries</h3>
         <p>Try our fresh strawberries. You will love them!</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                 <img class="d-block w-100" src="./images/Apples.webp" alt="Third slide">
                     <div class="carousel-caption">
-                    <h3>Apples</h3>
         <p>Discover our variety of delicious apples.</p>
                     </div>
                 </div>
