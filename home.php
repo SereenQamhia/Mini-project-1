@@ -6,13 +6,15 @@
     $_SESSION['fruits_array'] = array();
 }
 
-if (!empty($_GET['name']) && !empty($_GET['price']) && !empty($_GET['details'])) {
+if (!empty($_GET['name']) && !empty($_GET['price']) && !empty($_GET['details']) && !empty($_GET['date'])) {
 
     $name = $_GET['name'];
     $price = $_GET['price'];
     $details = $_GET['details'];
+    $date = $_GET['date'];
 
-    $data = array('name' => $name, 'price' => $price, 'details' => $details);
+
+    $data = array('name' => $name, 'price' => $price, 'details' => $details , 'date' => $date);
 
     $_SESSION['fruits_array'][] = $data;
 
@@ -99,13 +101,15 @@ if (!empty($_GET['name']) && !empty($_GET['price']) && !empty($_GET['details']))
   <h2 id="add">Add new fruit</h2>
   <div id="fillData">
   <form  id="fruit" action="" method="get">
-      <label for="" > Add fruit name :</label>
-    <input type="text" name="name" Required>  <br>
-      <label for=""> Add fruit price for kilo :</label>
-    <input type="text" name="price" Required>   <br>
-      <label for=""> Description :</label>
-    <input type="text" name="details" Required>   <br>
-    <label for=""> Attach an image:</label>
+      <label for="" > Add fruit name :</label> <br>
+    <input class="input" type="text" name="name" Required>  <br>
+      <label for=""> Add fruit price for kilo :</label> <br>
+    <input  class="input" type="text" name="price" Required>   <br>
+      <label for=""> Description :</label> <br>
+    <input class="input" type="text" name="details" Required>   <br>
+    <label for=""> Enter the date of picking :</label> <br>
+    <input  type="date" name="date" Required> <br>
+    <label for=""> Attach an image:</label><br>
     <input type="file" >     <br>
     <button type="submit" class="btn1 btn-lg" >Add fruit</button>
   </form> 
@@ -119,6 +123,7 @@ if (!empty($_GET['name']) && !empty($_GET['price']) && !empty($_GET['details']))
             <th scope="col">Name</th>
             <th scope="col">Price</th>
             <th scope="col">Details</th>
+            <th scope="col">Date</th>
             <th scope="col">Image</th>
         </tr>
     </thead>
@@ -130,6 +135,7 @@ if (!empty($_GET['name']) && !empty($_GET['price']) && !empty($_GET['details']))
                     <td><?php echo $fruit['name']; ?></td>
                     <td><?php echo $fruit['price'] .'JD'; ?></td>
                     <td><?php echo $fruit['details']; ?></td>
+                    <td><?php echo $fruit['date']; ?></td>
                     <td> <img src="./images/fruits.jpg" style="height:40px" > </td>
                 </tr>
             <?php endforeach; ?>

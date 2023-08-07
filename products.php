@@ -45,14 +45,15 @@ session_start();
            <img class="card-img-top" src="./images/fruits.jpg" alt="Card image cap">
   <div class="card-body">
     <h4 class="card-title"><?php echo $fruit['name']; ?></h4>
-    <h5 class="card-title"><?php echo $fruit['price'].'JD'; ?></h5>
-    <p class="card-text"><?php echo $fruit['details']; ?></p>
+    <h5 class="card-title"><?php echo 'price for kilo: '. $fruit['price'].'JD'; ?></h5>
+    <p class="card-text"><?php echo 'Description: ' . $fruit['details']; ?></p>
+    <p class="card-text"><?php echo "The date of picking: ". $fruit['date']; ?></p>
   </div>
 </div>
 
 <?php endforeach; ?>
         <?php else: ?>
-          <h3>There is no products added to display </h3>
+          <h3 style="height: 380px;">There is no products added to display </h3>
             
         <?php endif; ?>
 
